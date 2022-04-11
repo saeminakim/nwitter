@@ -32,7 +32,7 @@ const Auth = () => {
         await signInWithEmailAndPassword(authService, email, password);
       }
     } catch (error) {
-      console.log(error.message);
+      setError(error.message);
     }
   };
   const toggleAccount = () => setNewAccount((prev) => !prev);
@@ -46,7 +46,7 @@ const Auth = () => {
     } else if (name === "github") {
       provider = new GithubAuthProvider();
     }
-    const data = await signInWithPopup(authService, provider);
+    await signInWithPopup(authService, provider);
   };
   return (
     <div>
