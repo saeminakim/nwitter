@@ -14,7 +14,7 @@ import { v4 as uuidv4 } from "uuid";
 const Home = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
   const [nweets, setNweets] = useState([]);
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("");
   const fileName = useRef();
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Home = ({ userObj }) => {
   const onSubmit = async (event) => {
     event.preventDefault();
     let attachmentUrl = "";
-    if (attachment != "") {
+    if (attachment !== "") {
       const attachmentRef = ref(storageService, `${userObj.uid}/${uuidv4()}`);
       const response = await uploadString(
         attachmentRef,
@@ -76,7 +76,7 @@ const Home = ({ userObj }) => {
     reader.readAsDataURL(theFile);
   };
   const onClearAttachment = () => {
-    setAttachment(null);
+    setAttachment("");
     fileName.current.value = "";
   };
   return (
