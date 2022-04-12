@@ -3,7 +3,7 @@ import { updateProfile } from "firebase/auth";
 // import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import React, { useState } from "react";
 
-const Profile = ({ userObj }) => {
+const Profile = ({ refreshUser, userObj }) => {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const onLogOutClick = () => {
     authService.signOut();
@@ -23,7 +23,10 @@ const Profile = ({ userObj }) => {
   const onSubmit = async (event) => {
     event.preventDefault();
     if (userObj.displayName !== newDisplayName) {
-      await updateProfile(userObj, { displayName: newDisplayName });
+      await updateProfile(authService.currentUser, {
+        displayName: newDisplayName,
+      });
+      refreshUser();
     }
   };
   const onChange = (event) => {
