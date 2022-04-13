@@ -13,7 +13,7 @@ function App() {
         setUserObj({
           displayName: user.displayName,
           uid: user.uid,
-          updateProfile: (args) =>
+          updateProfile: () =>
             user.updateProfile(user, { displayName: user.displayName }),
         });
       } else {
@@ -27,7 +27,7 @@ function App() {
     setUserObj({
       displayName: user.displayName,
       uid: user.uid,
-      updateProfile: (args) =>
+      updateProfile: () =>
         user.updateProfile(user, { displayName: user.displayName }),
     });
   };
