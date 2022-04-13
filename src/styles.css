@@ -223,11 +223,12 @@ form {
   justify-content: space-between;
   width: 100%;
   max-width: 320px;
+  border-radius: 20px;
+  margin: 5px;
 }
 
 .authBtn {
   cursor: pointer;
-  border-radius: 20px;
   border: none;
   padding: 10px 0px;
   font-size: 12px;
@@ -255,4 +256,9 @@ form {
   background: #04aaff;
   color: white;
   margin-top: 10px;
+}
+
+.authSwitch {
+  padding: 10px 10px 20px 10px;
+  cursor: pointer;
 }
